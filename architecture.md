@@ -1,0 +1,5 @@
+- Client side app
+    - Components: Svelte
+    - UI: Tailwind
+    - 
+- Server
