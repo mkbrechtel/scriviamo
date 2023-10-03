@@ -3,12 +3,17 @@
 console.log("starting velocemente server")
 
 import express from "express"
+import expressWs from 'express-ws'
 import compression from "compression"
 
 import { createServer as createViteServer } from 'vite'
 
-var app = express();
+// @ts-expect-error import directly from dist folder
+import { setupWSConnection } from 'y-websocket/bin/utils'
+
+const { app } = expressWs(express())
 app.use(compression());
+app.use(express.json())
 
 const env = process.env.VELOCEMENTE_SERVER_ENV || "dev";
 if (env == "dev"){
@@ -31,9 +36,15 @@ app.get("/", function (req, res) {
   res.sendFile("index.html", { root: "./" });
 });
 
-// start the server
-app.listen(3980, function () {
-  console.log("velocemente server listening on port 3980!");
+
+app.ws('/collaboration/:document', (ws, req) => {
+  setupWSConnection(ws, req, { docName: req.params.document })
+})
+
+
+const port = process.env.VELOCEMENTE_SERVER_PORT || 3980
+app.listen(port, function () {
+  console.log(`velocemente server listening on port ${port}!`);
   // if running in dev mode, show where to go
   if (env == "dev"){
     console.log("go to http://localhost:3980");
