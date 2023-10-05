@@ -1,6 +1,7 @@
 <script>
 import { Editor, rootCtx, defaultValueCtx } from '@milkdown/core';
 import { commonmark } from '@milkdown/preset-commonmark';
+import { gfm } from '@milkdown/preset-gfm';
 import { clipboard } from '@milkdown/plugin-clipboard';
 import { nord } from '@milkdown/theme-nord';
 import { WebsocketProvider } from 'y-websocket';
@@ -18,6 +19,7 @@ function editor(dom) {
     })
     .config(nord)
     .use(commonmark)
+    .use(gfm)
     .use(clipboard)
     .use(collab)
     .create();
