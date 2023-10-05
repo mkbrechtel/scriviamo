@@ -1,21 +1,24 @@
 <script>
 import { Editor, rootCtx, defaultValueCtx } from '@milkdown/core';
 import { commonmark } from '@milkdown/preset-commonmark';
+import { clipboard } from '@milkdown/plugin-clipboard';
 import { nord } from '@milkdown/theme-nord';
 import { WebsocketProvider } from 'y-websocket';
 import { Doc } from 'yjs';
 import { collab, collabServiceCtx } from '@milkdown/plugin-collab';
+import "@milkdown/theme-nord/style.css";
 
 function editor(dom) {
   const doc = new Doc();
   const wsProvider = new WebsocketProvider('ws://localhost:3980/collaboration', 'test', doc);
- 
+
   const MakeEditor = Editor.make()
     .config((ctx) => {
       ctx.set(rootCtx, dom);
     })
     .config(nord)
     .use(commonmark)
+    .use(clipboard)
     .use(collab)
     .create();
 
@@ -33,7 +36,6 @@ function editor(dom) {
 
   })
 }
-
 </script>
 
 <div use:editor />

@@ -183,6 +183,14 @@
   dependencies:
     tslib "^2.5.0"
 
+"@milkdown/plugin-clipboard@^7.3.0":
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/@milkdown/plugin-clipboard/-/plugin-clipboard-7.3.0.tgz#d83bc230ea0903ba925ced7d57682413e636559f"
+  integrity sha512-KTvoOC8bJyOLqejpKWK1PAqoNH6WKdS7dGByy92rI3zQeJn9QPdzR2w2mi3d4j3AJHVxEimApGJRHrAOcb+i1w==
+  dependencies:
+    "@milkdown/utils" "7.3.0"
+    tslib "^2.5.0"
+
 "@milkdown/plugin-collab@^7.3.0":
   version "7.3.0"
   resolved "https://registry.yarnpkg.com/@milkdown/plugin-collab/-/plugin-collab-7.3.0.tgz#08e1c322ee60e8b28c91685141f5f03f4db3a25f"
