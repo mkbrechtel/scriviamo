@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-console.log("starting velocemente server")
+console.log("starting scriviamo server")
 
 import express from "express"
 import expressWs from 'express-ws'
@@ -15,7 +15,7 @@ const { app } = expressWs(express())
 app.use(compression());
 app.use(express.json())
 
-const env = process.env.VELOCEMENTE_SERVER_ENV || "dev";
+const env = process.env.SCRIVIAMO_SERVER_ENV || "dev";
 if (env == "dev"){
   console.log("running in dev mode, creating a vite server for hot reloading");
   const vite = await createViteServer({
@@ -42,9 +42,9 @@ app.ws('/collaboration/:document', (ws, req) => {
 })
 
 
-const port = process.env.VELOCEMENTE_SERVER_PORT || 3980
+const port = process.env.scriviamo_SERVER_PORT || 3980
 app.listen(port, function () {
-  console.log(`velocemente server listening on port ${port}!`);
+  console.log(`scriviamo server listening on port ${port}!`);
   // if running in dev mode, show where to go
   if (env == "dev"){
     console.log("go to http://localhost:3980");

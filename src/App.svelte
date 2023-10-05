@@ -13,7 +13,7 @@
       <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
     </a>
   </div>
-  <h1 class="text-3xl font-bold underline">velocemente</h1>
+  <h1 class="text-3xl font-bold underline">scriviamo</h1>
 
   <div>
     <Counter />
