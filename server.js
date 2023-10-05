@@ -36,13 +36,11 @@ app.get("/", function (req, res) {
   res.sendFile("index.html", { root: "./" });
 });
 
-
 app.ws('/collaboration/:document', (ws, req) => {
   setupWSConnection(ws, req, { docName: req.params.document })
 })
 
-
-const port = process.env.scriviamo_SERVER_PORT || 3980
+const port = process.env.SCRIVIAMO_SERVER_ENV || 3980
 app.listen(port, function () {
   console.log(`scriviamo server listening on port ${port}!`);
   // if running in dev mode, show where to go
